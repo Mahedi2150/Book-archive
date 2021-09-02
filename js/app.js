@@ -7,6 +7,7 @@ const buttonClick = () => {
     const searchResult = document.getElementById("resultCart")
     searchResult.textContent = ""
     document.getElementById("bookFound").innerText = ""
+    document.getElementById("totalBookFound").innerText = ""
     if (searchText.length === 0 ) {
         // Error Message
         const errorMessage = document.getElementById("resultCart");
