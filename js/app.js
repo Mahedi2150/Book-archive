@@ -7,7 +7,7 @@ const buttonClick = () => {
     const searchResult = document.getElementById("resultCart")
     searchResult.textContent = ""
     document.getElementById("bookFound").innerText = ""
-    if (searchText.length == "") {
+    if (searchText.length === 0 ) {
         // Error Message
         const errorMessage = document.getElementById("resultCart");
         errorMessage.innerHTML = `
@@ -33,8 +33,9 @@ const displayResult = books => {
     const searchResult = document.getElementById("resultCart")
     searchResult.textContent = ""
     // console.log(books.numFound)
-    document.getElementById("bookFound").innerText = `Book Found : ${books.numFound}`
-    // console.log(books.docs);
+    document.getElementById("totalBookFound").innerText = `Total Book : ${books.numFound}`
+    document.getElementById("bookFound").innerText = `Book Found : ${books.docs.length}`
+    // console.log(books.docs.length);
     const allBook = books.docs
 
     if (allBook.length === 0) {
@@ -69,8 +70,7 @@ const displayResult = books => {
       </div>
         `;
             resultDiv.appendChild(div)
-            // console.log(book.title);
-            // console.log(book.author_name[0]);
+            
         });
     }
 }
