@@ -2,14 +2,14 @@
 const buttonClick = () => {
     const searchField = document.getElementById("searchItem")
     const searchText = searchField.value;
-    
+    // clear input 
     searchField.value = "";
     const searchResult = document.getElementById("resultCart")
     searchResult.textContent = ""
     document.getElementById("bookFound").innerText = ""
     document.getElementById("totalBookFound").innerText = ""
     if (searchText.length === 0 ) {
-        // Error Message
+        // show Error Message
         const errorMessage = document.getElementById("resultCart");
         errorMessage.innerHTML = `
         <div class="card mx-auto   " >
@@ -20,6 +20,7 @@ const buttonClick = () => {
 
         `;
     } else {
+        // API part 
         document.getElementById("spinner").classList.remove("d-none");
         fetch(`https://openlibrary.org/search.json?q=${searchText}`)
             .then(res => res.json())
@@ -38,7 +39,7 @@ const displayResult = books => {
     document.getElementById("bookFound").innerText = `Book Found : ${books.docs.length}`
     // console.log(books.docs.length);
     const allBook = books.docs
-
+    // search result not found 
     if (allBook.length === 0) {
         const errorMessage = document.getElementById("resultCart");
         errorMessage.innerHTML = `
@@ -51,7 +52,7 @@ const displayResult = books => {
         `;
     } else {
         allBook.forEach(book => {
-
+            // show books
             const resultDiv = document.getElementById("resultCart")
 
             const div = document.createElement("div");
